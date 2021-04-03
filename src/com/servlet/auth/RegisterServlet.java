@@ -72,7 +72,7 @@ public class RegisterServlet extends HttpServlet {
 		System.out.println("Destroy...");
 		super.destroy();
 	}
-	
+
 	@Override
 	public void service(
 		HttpServletRequest request,

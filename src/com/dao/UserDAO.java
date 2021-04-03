@@ -1,5 +1,9 @@
 package com.dao;
 
+import java.util.List;
+
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 
 import com.entity.User;
@@ -20,5 +24,37 @@ public class UserDAO {
 		entity.setId(id);
 
 		return entity;
+	}
+
+	public List<User> paginate(int offset, int limit)
+	{
+		String hql = "FROM User";
+		Query query = this.hSession.createQuery(hql);
+		query.setFirstResult(offset);
+		query.setMaxResults(offset + limit);
+		
+		List<User> listUser = query.getResultList();
+
+		return listUser;
+	}
+	
+	public User findById(int id)
+	{
+		User entity = this.hSession.get(User.class, id);
+
+		return entity;
+	}
+	
+	public void update(User entity)
+	{
+		try {
+			this.hSession.beginTransaction();
+			this.hSession.update(entity);
+			this.hSession.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			this.hSession.getTransaction().rollback();
+		}
 	}
 }
