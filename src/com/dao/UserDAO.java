@@ -48,6 +48,7 @@ public class UserDAO {
 	public void update(User entity)
 	{
 		try {
+			this.hSession.clear();
 			this.hSession.beginTransaction();
 			this.hSession.update(entity);
 			this.hSession.getTransaction().commit();
@@ -55,6 +56,24 @@ public class UserDAO {
 			e.printStackTrace();
 
 			this.hSession.getTransaction().rollback();
+		}
+	}
+	
+	public void delete(User entity)
+	{
+		this.hSession.clear();
+		try {
+			this.hSession.beginTransaction();
+			
+			this.hSession.delete(entity);
+
+			this.hSession.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			this.hSession.getTransaction().rollback();
+			
+			throw e;
 		}
 	}
 }

@@ -2,6 +2,7 @@ package com.servlet.admin;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,7 +49,6 @@ public class UpdateUserServlet extends HttpServlet {
 
 		this.userDAO.update(entity);
 		
-		System.out.println("-----" + request.getContextPath());
 		response.sendRedirect( request.getContextPath() + "/admin/users");
 	}
 
