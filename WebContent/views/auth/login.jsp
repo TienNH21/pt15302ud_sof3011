@@ -21,7 +21,7 @@
 	  </div>
 	</nav>
 	<div>
-	  <form class="col-6 offset-3 mt-5" method="POST" action="/PT15301_UD/login" >
+	  <form class="col-6 offset-3 mt-5" method="POST" action="/PT15302UD/login" >
 	    <div class="mb-3">
 	      <label for="email" class="form-label">Email address</label>
 	      <input type="email" class="form-control" id="email" name="email">
