@@ -45,7 +45,6 @@ public class LoginServlet extends HttpServlet
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", entity);
-//			session.removeAttribute("user");
 
 			response.sendRedirect(
 				request.getContextPath() + "/admin/users"

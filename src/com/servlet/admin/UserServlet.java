@@ -47,7 +47,10 @@ public class UserServlet extends HttpServlet {
 		request.setAttribute("listUser", listUser);
 		request.setAttribute("page", page);
 
-		request.getRequestDispatcher("/views/admin/users/index.jsp")
+		String view = "/views/admin/users/index.jsp";
+		request.setAttribute("view", view);
+
+		request.getRequestDispatcher("/views/layout.jsp")
 		.forward(request, response);
 	}
 }
